@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>The Container Store: Where is...?</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" type="text/css"
+              th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>TCS where_is simulator</h1>
+                    <div th:if="${queryModel.result}">
+                        <h2>Previous query</h2>
+                        <p th:text="${queryModel.query}">previous query</p>
+                        <h3>Response</h3>
+                        <p th:text="${queryModel.result}">result</p>
+                        <h2>New query</h2>
+                    </div>
+                    <form action="#" th:action="@{/}" th:object="${queryModel}" method="post">
+                        <input type="text" th:field="*{query}"/>
+                        <p>
+                            <input class="btn btn-default" type="submit" value="Submit"/>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
