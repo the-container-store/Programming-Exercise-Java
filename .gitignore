@@ -39,6 +39,7 @@ Icon
 *.jar
 *.war
 *.ear
+*.zip
 
 ### Gradle ###
 # Exclude Folder List #

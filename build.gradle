@@ -21,6 +21,17 @@ repositories {
     mavenCentral()
 }
 
+def candidateName = project.properties['candidate'] ?: 'Anonymous' 
+
+task zip(type: Zip) {
+    include 'src/**'
+    from '.'
+    include 'build.gradle', 'gradlew', 'gradlew.bat', 'gradle/**', 'README.md'
+    exclude '.*', 'build/**'
+    archiveName "java_dev_${candidateName}.zip"
+    destinationDir file('.')
+}
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
