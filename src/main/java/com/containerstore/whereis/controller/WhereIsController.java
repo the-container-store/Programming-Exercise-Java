@@ -1,6 +1,6 @@
 package com.containerstore.whereis.controller;
 
-import com.containerstore.whereis.WhereIsViewModel;
+import com.containerstore.whereis.viewmodel.WhereIsViewModel;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.rest.api.v2010.account.MessageCreator;

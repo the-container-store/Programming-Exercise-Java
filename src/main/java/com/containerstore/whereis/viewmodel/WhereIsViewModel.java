@@ -1,4 +1,4 @@
-package com.containerstore.whereis;
+package com.containerstore.whereis.viewmodel;
 
 public class WhereIsViewModel {
     private String query;
