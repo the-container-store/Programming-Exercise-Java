@@ -2,6 +2,9 @@ buildscript {
     repositories {
         mavenCentral()
     }
+    dependencies {
+      classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
+    }
 }
 
 plugins {
@@ -13,6 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'war'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.bmuschko.tomcat'
 
 jar {
     baseName = 'where-is-app'
@@ -23,7 +27,7 @@ repositories {
     mavenCentral()
 }
 
-def candidateName = project.properties['candidate'] ?: 'Anonymous' 
+def candidateName = project.properties['candidate'] ?: 'Anonymous'
 
 task zip(type: Zip) {
     include 'src/**'
@@ -46,4 +50,14 @@ dependencies {
     compile 'com.twilio.sdk:twilio:7.3.0'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+    def tomcatVersion = '8.5.16'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+        "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
+        "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+}
+
+tomcat {
+  httpProtocol = 'org.apache.coyote.http11.Http11Nio2Protocol'
+  ajpProtocol  = 'org.apache.coyote.ajp.AjpNio2Protocol'
 }
