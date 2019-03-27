@@ -52,8 +52,7 @@ dependencies {
     testCompile 'org.springframework.boot:spring-boot-starter-test'
 
     def tomcatVersion = '8.5.16'
-    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
-        "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
+    tomcat "org.apache.tomcat.embed:tomcat-embed-logging-juli:8.5.2",
         "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
 }
 
