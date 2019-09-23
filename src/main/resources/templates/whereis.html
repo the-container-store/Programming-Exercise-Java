@@ -15,7 +15,7 @@
                         <h2>Previous query</h2>
                         <p th:text="${queryModel.query}">previous query</p>
                         <h3>Response</h3>
-                        <p th:text="${queryModel.result}">result</p>
+                        <p data-th-utext="${#strings.replace(#strings.escapeXml(queryModel.result),'&#10;','&lt;br&gt;')}"></p>
                         <h2>New query</h2>
                     </div>
                     <form action="#" th:action="@{/}" th:object="${queryModel}" method="post">

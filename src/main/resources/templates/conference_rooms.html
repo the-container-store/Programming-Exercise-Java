@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>The Container Store: Conference Rooms</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Conference rooms</h1>
+				<table id="conferenceRooms" class="table">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Location</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="mapEntry : ${conferenceRooms}">
+							<td th:text="${mapEntry.key}">key</td>
+							<td th:text="${mapEntry.value}">value</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
