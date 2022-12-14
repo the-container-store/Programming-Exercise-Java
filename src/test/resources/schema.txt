@@ -1,0 +1,27 @@
+create table customer
+(
+  customer_id       NUMBER,
+  name              VARCHAR(100),
+  nearest_store_id  NUMBER,
+  phone             VARCHAR(12),
+  zip               VARCHAR(10)
+);
+
+
+create table store
+(
+  store_id          NUMBER,
+  code              VARCHAR2(3),
+  state             VARCHAR2(2)
+  opened            DATE
+);
+
+create table loyalty
+(
+  loyalty_id        NUMBER,
+  customer_id       NUMBER,
+  enrolled          DATE
+);
+
+-- a. find customers that are near a store in Texas
+-- b. find customers who are not loyalty members
